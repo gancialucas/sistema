@@ -1,7 +1,7 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-    <main>
+    <main class="h-screen">
         @yield('contenido')
     </main>
 
