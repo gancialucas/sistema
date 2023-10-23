@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Usuario;
+use App\Models\Dashboard;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class DashboardController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+    /* Display a listing of the resource. */
+    public function index() {
+        // $dashboard = Dashboard::all();
+
+        return view('dashboard', [
+            'dashboard' => 'hola'
+        ]);
     }
 
     /**
@@ -34,7 +35,7 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Usuario $usuario)
+    public function show(Dashboard $dashboard)
     {
         //
     }
@@ -42,7 +43,7 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Usuario $usuario)
+    public function edit(Dashboard $dashboard)
     {
         //
     }
@@ -50,7 +51,7 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, Dashboard $dashboard)
     {
         //
     }
@@ -58,7 +59,7 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Usuario $usuario)
+    public function destroy(Dashboard $dashboard)
     {
         //
     }
