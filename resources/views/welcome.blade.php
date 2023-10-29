@@ -45,7 +45,7 @@
                     </p>
 
                     <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="/dashboard" class="text-sm font-semibold leading-6 text-gray-900 rounded-full px-5 py-1 text-sm leading-6 text-gray-600 ring-2 ring-gray-900/10 hover:ring-gray-900/20">Conocer más <span aria-hidden="true">→</span></a>
+                        <a href="/login" class="text-sm font-semibold leading-6 text-gray-900 rounded-full px-5 py-1 text-sm leading-6 text-gray-600 ring-2 ring-gray-900/10 hover:ring-gray-900/20">Conocer más <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>
