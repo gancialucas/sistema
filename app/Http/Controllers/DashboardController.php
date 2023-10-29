@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dashboard;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
-{
+class DashboardController extends Controller {
     /* Display a listing of the resource. */
     public function index() {
-        // $dashboard = Dashboard::all();
+        if (session()->has('user_id')) {
+            // Recuperar el usuario de la sesión
+            $user = User::find(session('user_id'));
 
-        return view('dashboard', [
-            'dashboard' => 'hola'
-        ]);
+            return view('dashboard', [
+                'user' => $user
+            ]);
+        }
     }
 
     /**
