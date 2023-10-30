@@ -47,7 +47,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="/user/edit">
                     <i class='bx bx-user'></i>
                     <span class="links_name">User</span>
                 </a>
@@ -118,10 +118,10 @@
     </div>
 
     <section class="home-section">
-        <div class="grid justify-items-center text-center pt-5">
-            <div class="w-1/5 p-2 rounded bg-violet-400">
-                <p class="text-xl text-white">Bienvenido <span class="underline underline-offset-2">{{ $user->name }}</span></p>
-            </div>
+        <div id="sessionButton" class="grid justify-items-center text-center pt-5 px-2">
+            <button id="hiddenButton" class="w-auto p-2 rounded bg-violet-400 container">
+                <p class="text-white">Bienvenido <span class="underline underline-offset-2">{{ $user->name }}</span></p>
+            </button>
         </div>
 
         <div class="text">Colocar texto</div>
