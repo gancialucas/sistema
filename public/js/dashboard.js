@@ -21,3 +21,11 @@ function menuBtnChange() {
         closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
     }
 }
+
+// Hidden button session
+const miDiv = document.getElementById('sessionButton');
+const ocultarDivButton = document.getElementById('hiddenButton');
+
+ocultarDivButton.addEventListener('click', () => {
+    sessionButton.classList.add('hidden');
+});
