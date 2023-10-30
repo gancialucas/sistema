@@ -25,3 +25,11 @@ Route::get('/user/store', [UserController::class, 'store']);
 */
 
 Route::get('/dashboard', [ DashboardController::class, 'index' ]);
+
+/*
+|--------------------------------------------------------------------------
+| CONFIG de 'USER'
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/user/edit', [ UserController::class, 'edit' ]);
