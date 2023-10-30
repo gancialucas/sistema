@@ -14,9 +14,7 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/login', [UserController::class, 'index']);
-Route::get('/user/validation', [UserController::class, 'validation']);
-Route::get('/user/store', [UserController::class, 'store']);
+Route::view('/login', 'login');
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +30,6 @@ Route::get('/dashboard', [ DashboardController::class, 'index' ]);
 |--------------------------------------------------------------------------
 */
 
+Route::get('/user/validation', [UserController::class, 'validation']);
+Route::post('/user/store', [UserController::class, 'store']);
 Route::get('/user/edit', [ UserController::class, 'edit' ]);
