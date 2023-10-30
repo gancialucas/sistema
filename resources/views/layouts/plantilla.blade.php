@@ -1,8 +1,8 @@
 @include('layouts.header')
 @include('layouts.nav')
 
-    <main class="h-screen">
-        @yield('contenido')
+    <main>
+        @yield('content')
     </main>
 
 @include('layouts.footer')
