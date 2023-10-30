@@ -28,7 +28,7 @@ h2 {
 }
 
 p {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 100;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -41,7 +41,7 @@ span {
 
 a {
     color: #333;
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     margin: 15px 0;
 }
@@ -90,6 +90,9 @@ form {
 input {
     background-color: #eee;
     border: none;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
     padding: 12px 15px;
     margin: 8px 0;
     width: 100%;
@@ -102,9 +105,9 @@ input {
         0 10px 10px rgba(0, 0, 0, 0.22);
     position: relative;
     overflow: hidden;
-    width: 768px;
+    width: 868px;
     max-width: 100%;
-    min-height: 480px;
+    min-height: 580px;
 }
 
 .form-container {
@@ -220,17 +223,21 @@ input {
     transform: translateX(20%);
 }
 
-.social-container {
-    margin: 20px 0;
+/* imgs login input file */
+.avatar-upload {
+    display: inline-block;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
 }
 
-.social-container a {
-    border: 1px solid #DDDDDD;
+.avatar-upload img {
+    width: auto;
+    height: 50px;
+    border: 2px solid rgb(161, 161, 161);
     border-radius: 50%;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 5px;
-    height: 40px;
-    width: 40px;
+}
+
+input[type="file"] {
+    display: none;
 }
