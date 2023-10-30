@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller {
     /* Display a listing of the resource. */
-    public function index() {
-        return view('login');
-    }
+    public function index() {}
 
     /* user validated */
     public function validation() {
@@ -29,20 +27,88 @@ class UserController extends Controller {
 
         return redirect('/login')
                 ->with ([
-                    'message' => 'Lo sentimos, usuario no registrado 👎🏻',
+                    'message' => 'Lo sentimos, usuario o contraseña incorrecta',
                     'css' => 'danger'
                 ]);
     }
 
     /* Show the form for creating a new resource. */
-    public function create() {
-        //
+    public function create() {}
+
+    private function validateForm(Request $request, $id = null){
+        $request->validate(
+            [
+                'name'=>'required|min:3|max:30',
+                'email' => 'required',
+                'position'=>'min:5|max:35',
+                'description' => 'min:10|max:220',
+                'profile_img' => 'image',
+            ],
+            [
+                'name.required' => 'Por favor, ingrese su nombre',
+                'name.min' => 'Debe tener mínimo 2 caracteres',
+                'name.max' => 'Debe tener máximo 25 caracteres',
+
+                'email.required' => 'Por favor, ingrese un correo electrónico',
+
+                'position.min' => 'Debe tener mínimo 2 caracteres',
+                'position.max' => 'Debe tener máximo 25 caracteres',
+
+                'description.min' => 'Debe tener mínimo 10 caracteres',
+                'description.max' => 'Debe tener máximo 220 caracteres',
+
+                'profile_img.image' => 'Por favor, ingrese una imagen',
+            ]
+        );
+    }
+
+    // Se crea una función para la subida de imagenes que retorna un string (nombre de la imagen)
+    private function uploadImg(Request $request):string {
+        /*
+            Si no enviaron una archivo de imagen "store"
+                Nombre de la imagen por default.
+        */
+
+        $profile_img = 'noDisponible.jpg';
+
+        /*
+            Si no enviaron una archivo de imagen "upload"
+                Nombre de la imagen por default.
+        */
+        if ($request -> has('imgActual')) {
+            $profile_img = request() -> imgActual;
+        }
+
+        /*
+            Si enviaron una imagen
+            - Se debe subir en /imgs/productos
+        */
+
+        if ($request->file('profile_img')) {
+            // Traemos el archivo
+            $file = $request->file('profile_img');
+
+            // Renombrado:
+            $time = time();
+            $extension = $file->getClientOriginalExtension();
+
+            $profile_img = $time .'.'.$extension;
+
+            // Copiar el archivo imagen
+            $file->move(public_path('imgs/profile_img/'), $profile_img);
+        }
+
+        return $profile_img;
     }
 
     /* Store a newly created resource in storage. */
-    public function store () {
+    public function store (Request $request) {
+        $this->validateForm($request);
+
         $name = request()->name;
         $email = request()->email;
+        $position = request()->position;
+        $description = request()->description;
         $password = request()->password;
 
         try {
@@ -50,6 +116,12 @@ class UserController extends Controller {
 
             $user -> name = $name;
             $user -> email = $email;
+
+            // Subimos img
+            $user -> profile_img = $this->uploadImg($request);
+
+            $user -> position = $position;
+            $user -> description = $description;
             $user -> password = $password;
 
             $user -> save();
@@ -81,50 +153,9 @@ class UserController extends Controller {
 
     }
 
-
-    // Se crea una función para la subida de imagenes que retorna un string (nombre de la imagen)
-    private function uploadImg(Request $request):string {
-        /*
-            Si no enviaron una archivo de imagen "store"
-                Nombre de la imagen por default.
-        */
-
-        $profile_img = 'noDisponible.png';
-
-        /*
-            Si no enviaron una archivo de imagen "upload"
-                Nombre de la imagen por default.
-        */
-        if ($request -> has('imgActual')) {
-            $profile_img = request() -> imgActual;
-        }
-
-        /*
-             Si enviaron una imagen
-                - Se debe subir en /imgs/productos
-        */
-
-        if ($request->file('profile_img')) {
-            // Traemos el archivo
-            $file = $request->file('profile_img');
-
-            // Renombrado:
-            $time = time();
-            $extension = $file->getClientOriginalExtension();
-
-            $profile_img = $time .'.'.$extension;
-
-            // Copiar el archivo imagen
-            $file->move(public_path('imgs/productos/'), $profile_img);
-        }
-
-        return $profile_img;
-    }
-
     /* Update the specified resource in storage. */
     public function update(Request $request, Dashboard $dashboard) {
-        // Subimos img
-        // $user -> prdImagen = $this->uploadImg($request);
+
     }
 
     /**
