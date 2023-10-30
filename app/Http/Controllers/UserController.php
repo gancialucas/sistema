@@ -7,8 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
-{
+class UserController extends Controller {
     /* Display a listing of the resource. */
     public function index() {
         return view('login');
@@ -55,6 +54,9 @@ class UserController extends Controller
 
             $user -> save();
 
+            // Almacenar el ID del usuario en la sesión
+            session(['user_id' => $user->id]);
+
             return redirect('/dashboard')
                 ->with ([
                     'message' => 'Bienvenido '.$name.' 👍🏻',
@@ -74,12 +76,9 @@ class UserController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Dashboard $dashboard)
-    {
-        //
+    /* Show the form for editing the specified resource. */
+    public function edit() {
+
     }
 
 
