@@ -38,7 +38,7 @@
 
                 <input type="password" name="password" placeholder="Password" />
 
-                <span>chose your profile picture</span>
+                <span>Chose your profile picture</span>
                 <label for="profile_img" class="avatar-upload">
                     <img src="/imgs/utilities/avatar_user.jpg" alt="profile_img">
                 </label>

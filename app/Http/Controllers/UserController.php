@@ -40,9 +40,10 @@ class UserController extends Controller {
             [
                 'name'=>'required|min:3|max:30',
                 'email' => 'required',
-                'position'=>'min:5|max:35',
+                'password' => 'required',
+                'position'=>'required|min:5|max:25',
                 'description' => 'min:10|max:220',
-                'profile_img' => 'image',
+                'profile_img' => 'required|image',
             ],
             [
                 'name.required' => 'Por favor, ingrese su nombre',
@@ -51,13 +52,17 @@ class UserController extends Controller {
 
                 'email.required' => 'Por favor, ingrese un correo electrónico',
 
-                'position.min' => 'Debe tener mínimo 2 caracteres',
-                'position.max' => 'Debe tener máximo 25 caracteres',
+                'password.required' => 'Por favor, ingrese una contraseña',
+
+                'position.required' => 'Ingrese su posición actual de trabajo o estudio',
+                'position.min' => 'Posición: mínimo 2 caracteres',
+                'position.max' => 'Posición: máximo 25 caracteres',
 
                 'description.min' => 'Debe tener mínimo 10 caracteres',
                 'description.max' => 'Debe tener máximo 220 caracteres',
 
-                'profile_img.image' => 'Por favor, ingrese una imagen',
+                'profile_img.required' => 'Coloque una foto de perfil',
+                'profile_img.image' => 'Por favor, ingrese un archivo del tipo imagen',
             ]
         );
     }
