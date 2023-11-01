@@ -13,7 +13,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="/dashboard">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
@@ -21,7 +21,7 @@
             </li>
 
             <li>
-                <a href="/user/edit">
+                <a href="/user/edit/{{ $user->id }}">
                     <i class='bx bx-user'></i>
                     <span class="links_name">User</span>
                 </a>
