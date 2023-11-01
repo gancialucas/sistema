@@ -154,8 +154,13 @@ class UserController extends Controller {
     }
 
     /* Show the form for editing the specified resource. */
-    public function edit() {
+    public function edit($id) {
+        $user = User::find($id);
+        $users = User::all();
 
+        return view('userEdit', [
+            'user' => $user
+        ]);
     }
 
     /* Update the specified resource in storage. */

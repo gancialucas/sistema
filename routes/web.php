@@ -32,4 +32,4 @@ Route::get('/dashboard', [ DashboardController::class, 'index' ]);
 
 Route::get('/user/validation', [UserController::class, 'validation']);
 Route::post('/user/store', [UserController::class, 'store']);
-Route::get('/user/edit', [ UserController::class, 'edit' ]);
+Route::get('/user/edit/{id}', [ UserController::class, 'edit']);
