@@ -42,8 +42,8 @@ class UserController extends Controller {
                 'email' => 'required',
                 'password' => 'required',
                 'position'=>'required|min:5|max:25',
-                'description' => 'min:10|max:220',
-                'profile_img' => 'required|image',
+                'description' => 'max:220',
+                'profile_img' => 'image',
             ],
             [
                 'name.required' => 'Por favor, ingrese su nombre',
@@ -58,7 +58,6 @@ class UserController extends Controller {
                 'position.min' => 'Posición: mínimo 2 caracteres',
                 'position.max' => 'Posición: máximo 25 caracteres',
 
-                'description.min' => 'Debe tener mínimo 10 caracteres',
                 'description.max' => 'Debe tener máximo 220 caracteres',
 
                 'profile_img.required' => 'Coloque una foto de perfil',

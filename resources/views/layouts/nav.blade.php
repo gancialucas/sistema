@@ -1,7 +1,7 @@
     <div class="sidebar">
         <div class="logo-details">
             <i class='bx bxl-c-plus-plus icon'></i>
-            <div class="logo_name">CodingStella</div>
+            <div class="logo_name">Logo</div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
 
@@ -9,7 +9,7 @@
             <li>
                 <i class='bx bx-search'></i>
                 <input type="text" placeholder="Search...">
-                <span class="tooltip">Search</span>
+                <span class="tooltip">Buscar</span>
             </li>
 
             <li>
@@ -23,33 +23,33 @@
             <li>
                 <a href="/user/edit/{{ $user->id }}">
                     <i class='bx bx-user'></i>
-                    <span class="links_name">User</span>
+                    <span class="links_name">Usuario</span>
                 </a>
-                <span class="tooltip">User</span>
+                <span class="tooltip">Usuario</span>
             </li>
 
-            <li>
+            {{-- <li>
                 <a href="#">
                     <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
+                    <span class="links_name">Mensajes</span>
                 </a>
-                <span class="tooltip">Messages</span>
+                <span class="tooltip">Mensajes</span>
             </li>
 
             <li>
                 <a href="#">
                     <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Analytics</span>
+                    <span class="links_name">Datos</span>
                 </a>
-                <span class="tooltip">Analytics</span>
-            </li>
+                <span class="tooltip">Datos</span>
+            </li> --}}
 
             <li>
                 <a href="#">
                     <i class='bx bx-folder'></i>
-                    <span class="links_name">File Manager</span>
+                    <span class="links_name">Archivos</span>
                 </a>
-                <span class="tooltip">Files</span>
+                <span class="tooltip">Archivos</span>
             </li>
 
             <li>
