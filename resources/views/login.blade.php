@@ -55,10 +55,9 @@
                 @csrf
                 <h1>Iniciar Sesión</h1>
 
-
                 @if (session('message'))
-                    <div class="mt-4 alert alert-{{ session('css') }}">
-                        {{ session('message') }}
+                    <div class="mt-2 alert alert-{{ session('css') }}">
+                        <p class="m-1">{{ session('message') }}</p>
                     </div>
                 @endif
 
@@ -66,7 +65,7 @@
                 @if( $errors->any() )
                     <div class="text-start mt-4 alert alert-danger">
                         @foreach( $errors->all() as $error )
-                            <p class="m-0 p-0"><i class='bx bxs-error'></i> {{ $error }}</p>
+                            <p class="m-0 p-1"><i class='bx bxs-error'></i> {{ $error }}</p>
                         @endforeach
                     </div>
                 @endif
