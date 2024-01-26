@@ -18,14 +18,6 @@ Route::view('/login', 'login');
 
 /*
 |--------------------------------------------------------------------------
-| CONFIG de 'DASHBOARD'
-|--------------------------------------------------------------------------
-*/
-
-Route::get('/dashboard', [ DashboardController::class, 'index' ]);
-
-/*
-|--------------------------------------------------------------------------
 | CONFIG de 'USER'
 |--------------------------------------------------------------------------
 */
@@ -33,3 +25,11 @@ Route::get('/dashboard', [ DashboardController::class, 'index' ]);
 Route::get('/user/validation', [UserController::class, 'validation']);
 Route::post('/user/store', [UserController::class, 'store']);
 Route::get('/user/edit/{id}', [ UserController::class, 'edit']);
+
+/*
+|--------------------------------------------------------------------------
+| CONFIG de 'DASHBOARD'
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/dashboard', [ DashboardController::class, 'index' ]);
