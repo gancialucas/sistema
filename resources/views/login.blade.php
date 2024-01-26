@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{-- Title --}}
-    <title>Log In</title>
+    <title>Iniciar Sesion | Registrarse</title>
 
     {{-- Favicon --}}
     <link rel="shortcut icon" href="/public/imgs/logo.png" type="image/x-icon">
 
-    {{-- Scripts - Tailwind & SweetAlert --}}
+    {{-- Scripts - Bootstrap & SweetAlert --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -19,7 +19,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     {{-- Link - CSS --}}
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
@@ -27,31 +27,33 @@
         <div class="form-container sign-up-container">
             <form action="/user/store" method="post" enctype="multipart/form-data">
                 @csrf
-                <h1>Create Account</h1>
+                <h1>Registrarse</h1>
 
-                <span>Use your email for registration</span>
-                <input type="text" name="name" placeholder="Name" value="{{ old('name') }}"/>
+                <span>Por favor, ingrese sus datos</span>
+
+                <input type="text" name="name" placeholder="Nombre" value="{{ old('name') }}"/>
                 <input type="email" name="email" placeholder="Email" value="{{ old('email') }}"/>
 
-                <input type="text" name="position" placeholder="Position" value="{{ old('position') }}"/>
-                <input type="text" name="description" placeholder="Description" value="{{ old('description') }}"/>
+                <input type="text" name="position" placeholder="Ocupación" value="{{ old('position') }}"/>
+                <input type="text" name="description" placeholder="Descripción Personal" value="{{ old('description') }}"/>
 
-                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="password" placeholder="Contraseña" />
 
-                <span>Chose your profile picture</span>
+                <span>¡Sonría, se ve muy bien!</span>
                 <label for="profile_img" class="avatar-upload">
-                    <img src="/imgs/utilities/avatar_user.jpg" alt="profile_img">
+                    <img src="/imgs/utilities/user.png" alt="profile_img">
                 </label>
+
                 <input type="file" name="profile_img" id="profile_img">
 
-                <button>Sign Up</button>
+                <button>Registrarse</button>
             </form>
         </div>
 
         <div class="form-container sign-in-container">
             <form action="/user/validation">
                 @csrf
-                <h1>Sign in</h1>
+                <h1>Iniciar Sesión</h1>
 
 
                 @if (session('message'))
@@ -69,27 +71,28 @@
                     </div>
                 @endif
 
-                <span class="pt-3">Welcome back</span>
+                <span class="pt-3">Bienvenido nuevamente</span>
 
                 <input type="email" name="email" placeholder="Email" />
                 <input type="password" name="password" placeholder="Password" />
 
-                <a href="#">Forgot your password?</a>
-                <button>Sign In</button>
+                <a class="link-underline-dark" href="#">Recuperar contraseña</a>
+                <button>Iniciar Sesión</button>
             </form>
         </div>
 
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-left">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <h1>¡Bienvenido!</h1>
+                    <p>Para seguir disfrutando de nuestro sitio, por favor, inicie sesión con sus datos</p>
+                    <button class="ghost" id="signIn">Iniciar Sesión</button>
                 </div>
+
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <h1>¡Hola!</h1>
+                    <p>Rellena el formulario y comienza esta aventura con nosotros</p>
+                    <button class="ghost" id="signUp">Registrarse</button>
                 </div>
             </div>
         </div>
