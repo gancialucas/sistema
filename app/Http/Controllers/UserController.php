@@ -41,26 +41,24 @@ class UserController extends Controller {
                 'name'=>'required|min:3|max:30',
                 'email' => 'required',
                 'password' => 'required',
-                'position'=>'required|min:5|max:25',
+                'position'=>'min:5|max:25',
                 'description' => 'max:220',
                 'profile_img' => 'image',
             ],
             [
                 'name.required' => 'Por favor, ingrese su nombre',
-                'name.min' => 'Debe tener mínimo 2 caracteres',
-                'name.max' => 'Debe tener máximo 25 caracteres',
+                'name.min' => 'Su nombre debe tener mínimo 2 caracteres',
+                'name.max' => 'Su nombre debe tener máximo 25 caracteres',
 
                 'email.required' => 'Por favor, ingrese un correo electrónico',
 
                 'password.required' => 'Por favor, ingrese una contraseña',
 
-                'position.required' => 'Ingrese su posición actual de trabajo o estudio',
                 'position.min' => 'Posición: mínimo 2 caracteres',
                 'position.max' => 'Posición: máximo 25 caracteres',
 
-                'description.max' => 'Debe tener máximo 220 caracteres',
+                'description.max' => 'La descripción debe tener máximo 220 caracteres',
 
-                'profile_img.required' => 'Coloque una foto de perfil',
                 'profile_img.image' => 'Por favor, ingrese un archivo del tipo imagen',
             ]
         );
@@ -85,7 +83,7 @@ class UserController extends Controller {
 
         /*
             Si enviaron una imagen
-            - Se debe subir en /imgs/productos
+            - Se debe subir en /imgs/profile_img
         */
 
         if ($request->file('profile_img')) {
@@ -114,6 +112,7 @@ class UserController extends Controller {
         $position = request()->position;
         $description = request()->description;
         $password = request()->password;
+        $role = 1;
 
         try {
             $user = new User;
@@ -127,6 +126,13 @@ class UserController extends Controller {
             $user -> position = $position;
             $user -> description = $description;
             $user -> password = $password;
+
+            /*
+                Para los roles:
+                    - 0: admin
+                    - 1: user
+            */
+            $user -> role = $role;
 
             $user -> save();
 
