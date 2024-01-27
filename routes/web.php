@@ -25,6 +25,9 @@ Route::view('/login', 'login');
 Route::get('/user/validation', [UserController::class, 'validation']);
 Route::post('/user/store', [UserController::class, 'store']);
 Route::get('/user/edit/{id}', [ UserController::class, 'edit']);
+Route::put('/user/update', [ UserController::class, 'update']);
+Route::get('/user/delete/{id}', [UserController::class, 'confirm']);
+Route::delete('/user/destroy', [UserController::class, 'destroy']);
 
 /*
 |--------------------------------------------------------------------------
