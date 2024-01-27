@@ -34,7 +34,7 @@
                     <span class="links_name">Mensajes</span>
                 </a>
                 <span class="tooltip">Mensajes</span>
-            </li>
+            </li> --}}
 
             <li>
                 <a href="#">
@@ -42,7 +42,7 @@
                     <span class="links_name">Datos</span>
                 </a>
                 <span class="tooltip">Datos</span>
-            </li> --}}
+            </li>
 
             <li>
                 <a href="#">
