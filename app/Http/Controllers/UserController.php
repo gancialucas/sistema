@@ -142,12 +142,14 @@ class UserController extends Controller {
             return redirect('/dashboard')
                 ->with ([
                     'message' => 'Bienvenido '.$name.' 👍🏻',
+                    'css_tailwind' => 'green',
                     'css' => 'success'
                 ]);
         } catch (\Throwable $th) {
             return redirect('/login')
                 ->with ([
                     'message' => 'Lo sentimos, usuario no registrado 👎🏻',
+                    'css_tailwind' => 'red',
                     'css' => 'danger'
                 ]);
         }
@@ -164,20 +166,99 @@ class UserController extends Controller {
         $users = User::all();
 
         return view('userEdit', [
-            'user' => $user
+            'user' => $user,
+            'users' => $users
         ]);
     }
 
     /* Update the specified resource in storage. */
     public function update(Request $request, Dashboard $dashboard) {
+        /*
+            Plan de acción recomendado:
+                1. validación
+                2. subir imgs
+                3. completar el update
+        */
 
+        // Validamos los datos ingresados por formulario
+        $this->validateForm($request, $request->id);
+
+        // Realizamos paso 2.
+        $profile_img = $this->uploadImg($request);
+
+        /*
+            Realizar paso 3.
+                Tomamos el valor del id
+        */
+        $idUser = request()->id;
+
+        // Capturamos los valores enviados por formulario para colocarlos en una variable
+        $name = $request->name;
+        $email = $request->email;
+        $description = $request->description;
+        $position = $request->position;
+        $password = $request->password;
+
+        try {
+            $User = User::find($idUser);
+
+            $User -> name = $name;
+            $User -> email = $email;
+
+            $User -> profile_img = $profile_img;
+
+            $User -> description = $description;
+            $User -> position = $position;
+            $User -> password = $password;
+
+            $User->save();
+
+            return redirect('/dashboard')
+            ->with ([
+                'message' => 'Tu información fue actualizada con éxito 👍🏻',
+                'css_tailwind' => 'green',
+                'css' => 'success'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect('/dashboard')
+                ->with ([
+                    'message' => 'No se pudo actualizar tu información 👎🏻',
+                    'css_tailwind' => 'red',
+                    'css' => 'danger'
+                ]);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Dashboard $dashboard)
-    {
-        //
+    /* A view is displayed before the destroy method is executed. */
+    public function confirm($id) {
+        $User = User::find($id);
+
+        return view( 'userDelete', [
+            'user'=>$User
+        ]);
+    }
+
+    /* Remove the specified resource from storage. */
+    public function destroy() {
+        $idUser = request() -> id;
+        $name = request() -> name;
+
+        try {
+            User::destroy($idUser);
+
+            return redirect('/login')
+            ->with ([
+                'message' => 'Su cuenta "'.$name.'" fue borrado con éxito 👍🏻',
+                'css_tailwind' => 'green',
+                'css' => 'success'
+            ]);
+        } catch (\Throwable $th) {
+            return redirect('/login')
+                ->with ([
+                    'message' => 'No se pudo borrar la cuenta "'.$name.'" 👎🏻',
+                    'css_tailwind' => 'red',
+                    'css' => 'danger'
+                ]);
+        }
     }
 }
