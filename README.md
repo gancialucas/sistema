@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Acerca del Proyecto - Catálogo
+## Acerca del Proyecto - Sistema
 
 Este repositorio contiene el código fuente y los archivos relacionados para la ejecución de un dashboard/panel administrativo. El usuario podrá darse de alta ingresando un nombre, correo, puesto de trabajo o estudio actual, una descripción de si mismo, una contraseña y una foto de perfil. Podrá editar sus datos personales y eliminar la cuenta si así lo quiere.
 
@@ -17,18 +17,18 @@ Se trabajó con el patrón de diseño MVC y amplía/profundiza los conceptos con
 
 > Bienvenida:
 
-<p align="center"><img src="/public/imgs/utilites/bienvenida.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/bienvenida.png" width="400" alt="foto_proyecto"></p>
 
 > Inicio de Sesión y Registro de Usuarios:
 
-<p align="center"><img src="/public/imgs/utilites/inicio_deUsuario.png" width="400" alt="foto_proyecto"></p>
-<p align="center"><img src="/public/imgs/utilites/registro_deUsuario.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/inicio_deUsuario.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/registro_deUsuario.png" width="400" alt="foto_proyecto"></p>
 
 > Dashboard, información de usuario y eliminar usuario:
 
-<p align="center"><img src="/public/imgs/utilites/dashboard.png" width="400" alt="foto_proyecto"></p>
-<p align="center"><img src="/public/imgs/utilites/userEdit.png" width="400" alt="foto_proyecto"></p>
-<p align="center"><img src="/public/imgs/utilites/deleteUser.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/dashboard.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/userEdit.png" width="400" alt="foto_proyecto"></p>
+<p align="center"><img src="/public/imgs/utilities/deleteUser.png" width="400" alt="foto_proyecto"></p>
 
 ## Contactame
 
