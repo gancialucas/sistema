@@ -16,7 +16,7 @@
 
                             <div class="flex justify-center pt-4">
                                 <button class="bg-red-800 text-white rounded px-4 py-2">Delete</button>
-                                <a href="/user/edit/{{ $user->id }}" class="bg-gray-400 text-white rounded px-4 py-2 ms-2">Regresar</a>
+                                <a href="/user/edit/{{ $user->id }}" class="rounded px-4 py-2 ms-2 text-black hover:underline">Regresar</a>
                             </div>
                         </form>
                     </div>
